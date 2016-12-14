@@ -2,5 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LaugaLaunVol1.CalculatorPage">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  <StackLayout Margin="30"
+               VerticalOptions="Start"
+               Spacing="10">
+    <DatePicker x:Name="DatePicker"
+                HorizontalOptions="Center"/>
+      <Button x:Name="CalcButton" Text="Reikna"
+              BorderRadius="10"
+              BorderColor="Gray"
+              HorizontalOptions="Center"/>
+      <ListView x:Name="ShiftList"
+                ItemsSource="{Binding .}"/>
+  </StackLayout>
 </ContentPage>

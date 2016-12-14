@@ -13,6 +13,14 @@ namespace LaugaLaunVol1
         public CalculatorPage()
         {
             InitializeComponent();
+            List<DateTime> _dates = new List<DateTime>();
+            _dates.Add(DateTime.Today);
+            BindingContext = _dates;
+            DatePicker.PropertyChanged += (sender, args) =>
+            {
+                _dates.Add(DatePicker.Date);
+                BindingContext = _dates;
+            };
         }
 
         protected override void OnAppearing()

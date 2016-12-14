@@ -39,6 +39,7 @@
     <Compile Include="InfoPage.xaml.cs">
       <DependentUpon>InfoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainPage.cs" />
     <Compile Include="ShiftPlanPage.xaml.cs">
       <DependentUpon>ShiftPlanPage.xaml</DependentUpon>
     </Compile>

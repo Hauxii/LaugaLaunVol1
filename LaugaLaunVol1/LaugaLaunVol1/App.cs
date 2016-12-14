@@ -29,7 +29,7 @@ namespace LaugaLaunVol1
             tabbedPage.Children.Add(otherNavigationPage);
             tabbedPage.Children.Add(popularNavigationPage);
 
-            MainPage = new NavigationPage(tabbedPage);
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
