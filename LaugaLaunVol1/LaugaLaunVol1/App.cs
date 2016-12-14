@@ -12,16 +12,16 @@ namespace LaugaLaunVol1
         public App()
         {
             // The root page of your application
-            var moviePage = new ShiftPlanPage();
-            var movieNavigationPage = new NavigationPage(moviePage);
+            var calcPage = new CalculatorPage();
+            var movieNavigationPage = new NavigationPage(calcPage);
             movieNavigationPage.Title = "Reiknivél";
 
-            var otherPage = new ShiftPlanPage();
-            var otherNavigationPage = new NavigationPage(otherPage);
+            var shiftPage = new ShiftPlanPage();
+            var otherNavigationPage = new NavigationPage(shiftPage);
             otherNavigationPage.Title = "Vaktaplan";
 
-            var popularPage = new InfoPage();
-            var popularNavigationPage = new NavigationPage(popularPage);
+            var infoPage = new InfoPage();
+            var popularNavigationPage = new NavigationPage(infoPage);
             popularNavigationPage.Title = "Upplýsingar";
 
             var tabbedPage = new TabbedPage();

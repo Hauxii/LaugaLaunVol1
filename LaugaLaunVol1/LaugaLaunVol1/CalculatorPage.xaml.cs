@@ -14,5 +14,11 @@ namespace LaugaLaunVol1
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            
+        }
     }
 }
