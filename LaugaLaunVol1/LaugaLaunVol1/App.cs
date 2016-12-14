@@ -14,15 +14,15 @@ namespace LaugaLaunVol1
             // The root page of your application
             var moviePage = new ShiftPlanPage();
             var movieNavigationPage = new NavigationPage(moviePage);
-            movieNavigationPage.Title = "Movies";
+            movieNavigationPage.Title = "Reiknivél";
 
             var otherPage = new ShiftPlanPage();
             var otherNavigationPage = new NavigationPage(otherPage);
-            otherNavigationPage.Title = "Top rated";
+            otherNavigationPage.Title = "Vaktaplan";
 
             var popularPage = new InfoPage();
             var popularNavigationPage = new NavigationPage(popularPage);
-            popularNavigationPage.Title = "Popular";
+            popularNavigationPage.Title = "Upplýsingar";
 
             var tabbedPage = new TabbedPage();
             tabbedPage.Children.Add(movieNavigationPage);
