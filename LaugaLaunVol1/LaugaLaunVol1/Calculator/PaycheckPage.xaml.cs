@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace LaugaLaunVol1
+namespace LaugaLaunVol1.Calculator
 {
-    public partial class InfoPage : ContentPage
+    public partial class PaycheckPage : ContentPage
     {
-        public InfoPage()
+        public PaycheckPage()
         {
             InitializeComponent();
         }

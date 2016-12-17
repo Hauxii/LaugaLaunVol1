@@ -36,14 +36,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="InfoPage.xaml.cs">
+    <Compile Include="Calculator\InfoPage.xaml.cs">
       <DependentUpon>InfoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Calculator\Model\Paycheck.cs" />
     <Compile Include="MainPage.cs" />
-    <Compile Include="ShiftPlanPage.xaml.cs">
+    <Compile Include="Calculator\Model\SalaryCalculator.cs" />
+    <Compile Include="Calculator\Model\Shift.cs" />
+    <Compile Include="Calculator\PaycheckPage.xaml.cs">
+      <DependentUpon>PaycheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calculator\ShiftPlanPage.xaml.cs">
       <DependentUpon>ShiftPlanPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CalculatorPage.xaml.cs">
+    <Compile Include="Calculator\CalculatorPage.xaml.cs">
       <DependentUpon>CalculatorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,19 +59,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CalculatorPage.xaml">
+    <EmbeddedResource Include="Calculator\CalculatorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ShiftPlanPage.xaml">
+    <EmbeddedResource Include="Calculator\ShiftPlanPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="InfoPage.xaml">
+    <EmbeddedResource Include="Calculator\InfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -84,6 +90,13 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Calculator\PaycheckPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.175\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.175\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

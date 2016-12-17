@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace LaugaLaunVol1
+namespace LaugaLaunVol1.Calculator
 {
-    public partial class ShiftPlanPage : ContentPage
+    public partial class InfoPage : ContentPage
     {
-        public ShiftPlanPage()
+        public InfoPage()
         {
             InitializeComponent();
         }
