@@ -9,10 +9,11 @@ namespace LaugaLaunVol1.Model
 {
     class SalaryCalculator
     {
+        private ObservableCollection<Shift> _shifts;
 
-        public SalaryCalculator()
+        public SalaryCalculator(ObservableCollection<Shift> shifts)
         {
-            
+            this._shifts = shifts;
         }
 
         public double CalculateSalary(ObservableCollection<Shift> shifts)

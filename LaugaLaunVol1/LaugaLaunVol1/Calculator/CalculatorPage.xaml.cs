@@ -11,25 +11,25 @@ namespace LaugaLaunVol1.Calculator
 {
     public partial class CalculatorPage : ContentPage
     {
-        private ObservableCollection<Shift> shifts;
-        private SalaryCalculator salaryCalculator;
+        private ObservableCollection<Shift> _shifts;
+        private SalaryCalculator _salaryCalculator;
 
         public CalculatorPage()
         {
             InitializeComponent();
-            shifts = new ObservableCollection<Shift>();
-            salaryCalculator = new SalaryCalculator();
+            _shifts = new ObservableCollection<Shift>();
+            _salaryCalculator = new SalaryCalculator(_shifts);
 
             //Sets the content for the listview
-            BindingContext = shifts;
+            BindingContext = _shifts;
 
             MorningButton.Clicked += (sender, args) =>
             {
-                shifts.Add(new Shift(ShiftDatePicker.Date, true));
+                _shifts.Add(new Shift(ShiftDatePicker.Date, true));
             };
             EveningButton.Clicked += (sender, args) =>
             {
-                shifts.Add(new Shift(ShiftDatePicker.Date, false));
+                _shifts.Add(new Shift(ShiftDatePicker.Date, false));
             };
             CalcButton.Clicked += (sender, args) =>
             {
