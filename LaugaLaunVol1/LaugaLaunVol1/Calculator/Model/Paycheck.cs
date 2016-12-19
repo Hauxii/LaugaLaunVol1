@@ -6,17 +6,45 @@ using System.Threading.Tasks;
 
 namespace LaugaLaunVol1.Calculator.Model
 {
-    class Paycheck
+    public class Paycheck
     {
+        //TODO: remove when Settings has been added
+        public double MorningPayRate { get; set; }
+        public double EveningPayRate { get; set; }
+        public double TaxDiscount { get; set; }
+        
         //Laun
-        private double dagvinna;
-        private double yfirvinna;
-        private double orlof;
-        private double storhatid;
-        private double personuafsl;
+        public double TotalMorningHours { get; set; }
+        public double TotalEveningHours { get; set; }
+        public double MorningPay { get; set; }
+        public double EveningPay { get; set; }
+        public double OrlofBase { get; set; }
+        public double Orlof { get; set; }
+        public double HolidayHours { get; set; }
 
         //Fradrattur
-        private double skattstofn;
-        private double skattur;
+        public double TaxBase { get; set; }
+        public double TaxTotal { get; set; }
+        public double TaxToPay { get; set; }
+        public double Lifeyrir { get; set; }
+        public double SereignaLifeyrir { get; set; }
+        public double TotalPay { get; set; }
+
+        public Paycheck()
+        {
+            this.TotalEveningHours = 0;
+            this.TotalMorningHours = 0;
+            this.HolidayHours = 0;
+            this.Orlof = 0;
+            this.TaxBase = 0;
+            this.TaxToPay = 0;
+            this.TaxTotal = 0;
+            this.TotalPay = 0;
+
+            //TODO: get values from Settings
+            this.TaxDiscount = 50000;
+            this.MorningPayRate = 1750;
+            this.EveningPayRate = 2950;
+        }
     }
 }

@@ -2,5 +2,91 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LaugaLaunVol1.Calculator.PaycheckPage">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  <StackLayout>
+    <Grid Margin="10">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="60"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <Label Grid.Row="0" Grid.Column="0"
+             Text="Tegund"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="0" Grid.Column="1"
+             Text="Taxti"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="0" Grid.Column="2"
+             Text="Einingar"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="0" Grid.Column="3"
+             Text="Reiknað"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="1" Grid.Column="0"
+             Text="Dagvinna"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="1" Grid.Column="1"
+             Text="{Binding MorningPayRate}"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="1" Grid.Column="2"
+             Text="{Binding TotalMorningHours}"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="1" Grid.Column="3"
+             Text="{Binding MorningPay}"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="2" Grid.Column="0"
+             Text="Yfirvinna"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="2" Grid.Column="1"
+             Text="{Binding EveningPayRate}"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="2" Grid.Column="2"
+             Text="{Binding TotalEveningHours}"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="2" Grid.Column="3"
+             Text="{Binding EveningPay}"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="3" Grid.Column="0"
+             Text="Orlof"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="3" Grid.Column="1"
+             Text="{Binding OrlofBase}"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="3" Grid.Column="2"
+             Text="10,17%"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="3" Grid.Column="3"
+             Text="{Binding Orlof}"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="4" Grid.Column="0"
+             Text="Stórhátíð"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="4" Grid.Column="1"
+             Text="TODO"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="4" Grid.Column="2"
+             Text="TODO"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="4" Grid.Column="3"
+             Text="TODO"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="5" Grid.Column="0" 
+             Text="Laun samtals:"
+             HorizontalOptions="Center"/>
+      <Label Grid.Row="5" Grid.Column="3"
+             Text="{Binding TotalPay}"
+             HorizontalOptions="Center"
+             FontAttributes="Bold"/>
+    </Grid>
+    
+  </StackLayout>
 </ContentPage>

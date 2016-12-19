@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LaugaLaunVol1.Model;
+using LaugaLaunVol1.Calculator.Model;
 using Xamarin.Forms;
 
 namespace LaugaLaunVol1.Calculator
@@ -33,7 +33,7 @@ namespace LaugaLaunVol1.Calculator
             };
             CalcButton.Clicked += (sender, args) =>
             {
-                this.Navigation.PushAsync(new PaycheckPage());
+                this.Navigation.PushAsync(new PaycheckPage(_salaryCalculator.CalculateSalary()));
             };
 
         }
