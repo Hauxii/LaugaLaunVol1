@@ -1,9 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LaugaLaunVol1.Calculator.PaycheckPage">
-  <StackLayout>
-    <Grid Margin="10">
+             x:Class="LaugaLaunVol1.Calculator.PaycheckPage"
+             Title="Launaseðill">
+  <StackLayout Margin="0,10,0,0">
+    <Label Text="Laun"
+           FontSize="Large"
+           HorizontalOptions="Center"/>
+    <Grid Padding="10">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="1"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <Label Grid.Row="0" Grid.Column="0"
+             Text="Tegund"
+             FontAttributes="Bold"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="0" Grid.Column="1"
+             Text="Taxti"
+             FontAttributes="Bold"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="0" Grid.Column="2"
+             Text="Einingar"
+             FontAttributes="Bold"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="0" Grid.Column="3"
+             Text="Reiknað"
+             FontAttributes="Bold"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="1" Grid.Column="0"
+             Text="Dagvinna"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="1" Grid.Column="1"
+             x:Name="MorningPayRate"
+             Text="{Binding MorningPayRate}"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="1" Grid.Column="2"
+             Text="{Binding TotalMorningHours}"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="1" Grid.Column="3"
+             x:Name="MorningPay"
+             Text="{Binding MorningPay}"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="2" Grid.Column="0"
+             Text="Yfirvinna"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="2" Grid.Column="1"
+             x:Name="EveningPayRate"
+             Text="{Binding EveningPayRate}"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="2" Grid.Column="2"
+             Text="{Binding TotalEveningHours}"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="2" Grid.Column="3"
+             x:Name="EveningPay"
+             Text="{Binding EveningPay}"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="3" Grid.Column="0"
+             Text="Orlof"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="3" Grid.Column="1"
+             x:Name="OrlofBase"
+             Text="{Binding OrlofBase}"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="3" Grid.Column="2"
+             Text="10,17%"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="3" Grid.Column="3"
+             x:Name="Orlof"
+             Text="{Binding Orlof}"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="4" Grid.Column="0"
+             Text="Stórhátíð"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="4" Grid.Column="1"
+             Text="TODO"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="4" Grid.Column="2"
+             Text="TODO"
+             HorizontalOptions="End"/>
+      <Label Grid.Row="4" Grid.Column="3"
+             x:Name="Storhatid"
+             Text="TODO"
+             HorizontalOptions="End"/>
+      <BoxView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
+             BackgroundColor="Gray"
+             HorizontalOptions="Fill"/>
+      <Label Grid.Row="6" Grid.Column="0" 
+             Text="Laun samtals:"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="6" Grid.Column="3"
+             x:Name="TotalPay"
+             Text="{Binding TotalPayPreDeduction}"
+             HorizontalOptions="End"
+             FontAttributes="Bold"/>
+    </Grid>
+    <Label Text="Frádráttur"
+           FontSize="Large"
+           HorizontalOptions="Center"/>
+    <Grid Padding="10">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto"></RowDefinition>
         <RowDefinition Height="Auto"></RowDefinition>
@@ -11,81 +117,77 @@
         <RowDefinition Height="Auto"></RowDefinition>
         <RowDefinition Height="Auto"></RowDefinition>
         <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="1"></RowDefinition>
+        <RowDefinition Height="Auto"></RowDefinition>
       </Grid.RowDefinitions>
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="60"></ColumnDefinition>
+        <ColumnDefinition Width="Auto"></ColumnDefinition>
         <ColumnDefinition Width="*"></ColumnDefinition>
         <ColumnDefinition Width="*"></ColumnDefinition>
         <ColumnDefinition Width="*"></ColumnDefinition>
       </Grid.ColumnDefinitions>
       <Label Grid.Row="0" Grid.Column="0"
              Text="Tegund"
+             FontAttributes="Bold"
              HorizontalOptions="Start"/>
-      <Label Grid.Row="0" Grid.Column="1"
-             Text="Taxti"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="0" Grid.Column="2"
-             Text="Einingar"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="0" Grid.Column="3"
-             Text="Reiknað"
-             HorizontalOptions="Center"/>
+      <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
+             Text="Frádráttur"
+             FontAttributes="Bold"
+             HorizontalOptions="EndAndExpand"/>
       <Label Grid.Row="1" Grid.Column="0"
-             Text="Dagvinna"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="1" Grid.Column="1"
-             Text="{Binding MorningPayRate}"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="1" Grid.Column="2"
-             Text="{Binding TotalMorningHours}"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="1" Grid.Column="3"
-             Text="{Binding MorningPay}"
-             HorizontalOptions="Center"/>
+             Text="Skattur (samtals)"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+             x:Name="TaxToPay"
+             Text="{Binding TaxToPay}"
+             HorizontalOptions="EndAndExpand"/>
       <Label Grid.Row="2" Grid.Column="0"
-             Text="Yfirvinna"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="2" Grid.Column="1"
-             Text="{Binding EveningPayRate}"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="2" Grid.Column="2"
-             Text="{Binding TotalEveningHours}"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="2" Grid.Column="3"
-             Text="{Binding EveningPay}"
-             HorizontalOptions="Center"/>
+             Text="Persónuafsl."
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
+             x:Name="TaxDiscount"
+             Text="{Binding TaxDiscount}"
+             HorizontalOptions="EndAndExpand"/>
       <Label Grid.Row="3" Grid.Column="0"
-             Text="Orlof"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="3" Grid.Column="1"
-             Text="{Binding OrlofBase}"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="3" Grid.Column="2"
-             Text="10,17%"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="3" Grid.Column="3"
-             Text="{Binding Orlof}"
-             HorizontalOptions="Center"/>
+             Text="Skattur (borgaður)"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+             x:Name="TaxTotal"
+             Text="{Binding TaxTotal}"
+             HorizontalOptions="EndAndExpand"/>
       <Label Grid.Row="4" Grid.Column="0"
-             Text="Stórhátíð"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="4" Grid.Column="1"
-             Text="TODO"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="4" Grid.Column="2"
-             Text="TODO"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="4" Grid.Column="3"
-             Text="TODO"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="5" Grid.Column="0" 
-             Text="Laun samtals:"
-             HorizontalOptions="Center"/>
-      <Label Grid.Row="5" Grid.Column="3"
-             Text="{Binding TotalPay}"
-             HorizontalOptions="Center"
+             Text="Lífeyrissjóður"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"
+             x:Name="Lifeyrir"
+             Text="{Binding Lifeyrir}"
+             HorizontalOptions="EndAndExpand"/>
+      <Label Grid.Row="5" Grid.Column="0"
+             Text="Séreignarsparnaður"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"
+             x:Name="SereignaLifeyrir"
+             Text="{Binding SereignaLifeyrir}"
+             HorizontalOptions="EndAndExpand"/>
+      <Label Grid.Row="6" Grid.Column="0"
+             Text="StRv"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"
+             x:Name="StRv"
+             Text="{Binding StRv}"
+             HorizontalOptions="EndAndExpand"/>
+      <BoxView Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"
+             BackgroundColor="Gray"
+             HorizontalOptions="Fill"/>
+      <Label Grid.Row="8" Grid.Column="0"
+             Text="Frádráttur samtals:"
+             HorizontalOptions="Start"/>
+      <Label Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3"
+             x:Name="TotalDeduction"
+             Text="{Binding TotalDeduction}"
+             HorizontalTextAlignment="End"
              FontAttributes="Bold"/>
     </Grid>
-    
   </StackLayout>
 </ContentPage>

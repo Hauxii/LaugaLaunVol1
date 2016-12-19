@@ -12,7 +12,7 @@ namespace LaugaLaunVol1.Calculator.Model
     {
         private ObservableCollection<Shift> _shifts;
         private Paycheck _paycheck;
-        private readonly double TAX_STEP_1 = 336.035;
+        private readonly double TAX_STEP_1 = 336035;
 
         public SalaryCalculator(ObservableCollection<Shift> shifts)
         {
@@ -27,34 +27,36 @@ namespace LaugaLaunVol1.Calculator.Model
             _paycheck.EveningPay = _paycheck.TotalEveningHours * _paycheck.EveningPayRate;
             _paycheck.OrlofBase = _paycheck.MorningPay + _paycheck.EveningPay;
             _paycheck.Orlof = 0.1017 * _paycheck.OrlofBase; //10,17% of morningpay + eveningpay
-            _paycheck.TotalPay = _paycheck.MorningPay + _paycheck.EveningPay + _paycheck.Orlof;
+            _paycheck.TotalPayPreDeduction = (int)(_paycheck.MorningPay + _paycheck.EveningPay + _paycheck.Orlof);
             
             //TODO: CALC from Settings
-            _paycheck.Lifeyrir = 0.04 * _paycheck.TotalPay;
-            _paycheck.SereignaLifeyrir = 0.04 * _paycheck.TotalPay; 
+            _paycheck.Lifeyrir = 0.04 * _paycheck.TotalPayPreDeduction;
+            _paycheck.SereignaLifeyrir = 0.04 * _paycheck.TotalPayPreDeduction; 
             CalcTax();
-
-
+            _paycheck.StRv = 0.01*_paycheck.TotalPayPreDeduction;
+            _paycheck.TotalDeduction = _paycheck.Lifeyrir + _paycheck.SereignaLifeyrir + _paycheck.TaxTotal + _paycheck.StRv;
+            _paycheck.TotalPay = _paycheck.TotalPayPreDeduction - _paycheck.TotalDeduction;
+            
             return _paycheck;
         }
 
         private void CalcTax()
         {
-            _paycheck.TaxBase = _paycheck.TotalPay - (_paycheck.Lifeyrir + _paycheck.SereignaLifeyrir); //heildarlaun - eigið iðgjald í lífeyrissjóð (4% skyldu lífeyrir, 4%/2% séreign)
+            _paycheck.TaxBase = _paycheck.TotalPayPreDeduction - (_paycheck.Lifeyrir + _paycheck.SereignaLifeyrir); //heildarlaun - eigið iðgjald í lífeyrissjóð (4% skyldu lífeyrir, 4%/2% séreign)
             double leftOver = 0;
 
-            if (_paycheck.TotalPay > TAX_STEP_1)
+            if (_paycheck.TotalPayPreDeduction > TAX_STEP_1)
             {
-                leftOver = _paycheck.TotalPay - TAX_STEP_1;
+                leftOver = _paycheck.TotalPayPreDeduction - TAX_STEP_1;
                 if (leftOver < 0)
                 {
                     leftOver = 0;
                 }
             }
 
-            _paycheck.TaxToPay += 0.3713*_paycheck.TaxBase - leftOver; //Tax step 1, 37.13%
-            _paycheck.TaxToPay += 0.3835*leftOver; //Tax step 2, 38,35%
-            _paycheck.TaxTotal += _paycheck.TaxToPay - _paycheck.TaxDiscount;
+            _paycheck.TaxToPay += (0.3713*_paycheck.TaxBase - leftOver); //Tax step 1, 37.13%
+            _paycheck.TaxToPay += (0.3835*leftOver); //Tax step 2, 38,35%
+            _paycheck.TaxTotal = _paycheck.TaxToPay - _paycheck.TaxDiscount;
             if (_paycheck.TaxTotal < 0)
             {
                 _paycheck.TaxTotal = 0;

@@ -21,6 +21,8 @@ namespace LaugaLaunVol1.Calculator.Model
         public double OrlofBase { get; set; }
         public double Orlof { get; set; }
         public double HolidayHours { get; set; }
+        public double TotalPayPreDeduction { get; set; }
+        public double TotalPay { get; set; }
 
         //Fradrattur
         public double TaxBase { get; set; }
@@ -28,7 +30,9 @@ namespace LaugaLaunVol1.Calculator.Model
         public double TaxToPay { get; set; }
         public double Lifeyrir { get; set; }
         public double SereignaLifeyrir { get; set; }
-        public double TotalPay { get; set; }
+        public double TotalDeduction { get; set; }
+        public double StRv { get; set; }
+        
 
         public Paycheck()
         {
@@ -39,7 +43,8 @@ namespace LaugaLaunVol1.Calculator.Model
             this.TaxBase = 0;
             this.TaxToPay = 0;
             this.TaxTotal = 0;
-            this.TotalPay = 0;
+            this.TotalPayPreDeduction = 0;
+            this.TotalDeduction = 0;
 
             //TODO: get values from Settings
             this.TaxDiscount = 50000;

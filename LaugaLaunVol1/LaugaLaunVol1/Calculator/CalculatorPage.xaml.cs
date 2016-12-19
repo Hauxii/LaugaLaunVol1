@@ -35,7 +35,12 @@ namespace LaugaLaunVol1.Calculator
             {
                 this.Navigation.PushAsync(new PaycheckPage(_salaryCalculator.CalculateSalary()));
             };
-            
+            //Disable highlight on item selected
+            ShiftList.ItemTapped += (object sender, ItemTappedEventArgs e) => {
+                if (e.Item == null) return;
+                ((ListView)sender).SelectedItem = null;
+            };
+
         }
 
         public void OnDelete(object sender, EventArgs e)
