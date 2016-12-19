@@ -35,7 +35,13 @@ namespace LaugaLaunVol1.Calculator
             {
                 this.Navigation.PushAsync(new PaycheckPage(_salaryCalculator.CalculateSalary()));
             };
+            
+        }
 
+        public void OnDelete(object sender, EventArgs e)
+        {
+            var menuItem = (MenuItem)sender;
+            _shifts.Remove((Shift)menuItem.CommandParameter);
         }
 
     }

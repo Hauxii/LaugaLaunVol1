@@ -35,6 +35,10 @@
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
+            <ViewCell.ContextActions>
+            <MenuItem x:Name="MenuDelete" Clicked="OnDelete" CommandParameter="{Binding .}"
+               Text="Delete" IsDestructive="True" />
+         </ViewCell.ContextActions>
             <Grid>
               <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
