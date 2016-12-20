@@ -1,18 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using LaugaLaunVol1.Helpers;
 
 namespace LaugaLaunVol1.Calculator.Model
 {
     public class Paycheck
     {
         //TODO: remove when Settings has been added
-        public double MorningPayRate { get; set; }
-        public double EveningPayRate { get; set; }
-        public double TaxDiscount { get; set; }
-        
+        public double MorningPayRate
+        {
+            get { return Settings.MorningPayRate; }
+        }
+
+        public double EveningPayRate
+        {
+            get { return Settings.EveningPayRate; }
+        }
+
+        public double TaxDiscount
+        {
+            get { return Settings.TaxDiscount; }
+        }
+
         //Laun
         public double TotalMorningHours { get; set; }
         public double TotalEveningHours { get; set; }
@@ -30,6 +44,10 @@ namespace LaugaLaunVol1.Calculator.Model
         public double TaxToPay { get; set; }
         public double Lifeyrir { get; set; }
         public double SereignaLifeyrir { get; set; }
+        public int SereignaLifeyrirProsenta
+        {
+            get { return Settings.SereignaLifeyrirProsenta; }
+        }
         public double TotalDeduction { get; set; }
         public double StRv { get; set; }
         
@@ -45,11 +63,8 @@ namespace LaugaLaunVol1.Calculator.Model
             this.TaxTotal = 0;
             this.TotalPayPreDeduction = 0;
             this.TotalDeduction = 0;
-
-            //TODO: get values from Settings
-            this.TaxDiscount = 50000;
-            this.MorningPayRate = 1750;
-            this.EveningPayRate = 2950;
         }
+
+        
     }
 }

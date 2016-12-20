@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "Xam.Plugins.Settings": "2.5.1",
     "Xamarin.Forms": "2.3.3.175"
   },
   "frameworks": {

@@ -36,17 +36,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Calculator\InfoPage.xaml.cs">
+    <Compile Include="Calculator\Model\SettingsViewModel.cs" />
+    <Compile Include="Calculator\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InfoPage.xaml.cs">
       <DependentUpon>InfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Calculator\Model\Paycheck.cs" />
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="MainPage.cs" />
     <Compile Include="Calculator\Model\SalaryCalculator.cs" />
     <Compile Include="Calculator\Model\Shift.cs" />
     <Compile Include="Calculator\PaycheckPage.xaml.cs">
       <DependentUpon>PaycheckPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Calculator\ShiftPlanPage.xaml.cs">
+    <Compile Include="ShiftPlanPage.xaml.cs">
       <DependentUpon>ShiftPlanPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Calculator\CalculatorPage.xaml.cs">
@@ -65,18 +70,26 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Calculator\ShiftPlanPage.xaml">
+    <EmbeddedResource Include="ShiftPlanPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Calculator\InfoPage.xaml">
+    <EmbeddedResource Include="InfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Plugin.Settings, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.2.5.1.0\lib\portable-net45+wp80+win8+wpa81\Plugin.Settings.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.2.5.1.0\lib\portable-net45+wp80+win8+wpa81\Plugin.Settings.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.3.175\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
@@ -96,7 +109,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Calculator\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.175\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.175\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

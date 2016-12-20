@@ -18,13 +18,15 @@ namespace LaugaLaunVol1.Calculator
             BindingContext = paycheck;
 
             //Formatting digits from 1234 to 1,234
-            TotalPay.Text = double.Parse(paycheck.TotalPayPreDeduction.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
+            TotalPayPreDeduction.Text = double.Parse(paycheck.TotalPayPreDeduction.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
+            TotalPayPreDeduction1.Text = double.Parse(paycheck.TotalPayPreDeduction.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             MorningPay.Text = double.Parse(paycheck.MorningPay.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             EveningPay.Text = double.Parse(paycheck.EveningPay.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             Orlof.Text = double.Parse(paycheck.Orlof.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             OrlofBase.Text = double.Parse(paycheck.OrlofBase.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             MorningPayRate.Text = double.Parse(paycheck.MorningPayRate.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             EveningPayRate.Text = double.Parse(paycheck.EveningPayRate.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
+            TotalPay.Text = double.Parse(paycheck.TotalPay.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
 
             TaxToPay.Text = double.Parse(paycheck.TaxToPay.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             TaxTotal.Text = double.Parse(paycheck.TaxTotal.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
@@ -33,6 +35,7 @@ namespace LaugaLaunVol1.Calculator
             SereignaLifeyrir.Text = double.Parse(paycheck.SereignaLifeyrir.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             StRv.Text = double.Parse(paycheck.StRv.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             TotalDeduction.Text = double.Parse(paycheck.TotalDeduction.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
+            TotalDeduction1.Text = double.Parse(paycheck.TotalDeduction.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
 
 
         }
