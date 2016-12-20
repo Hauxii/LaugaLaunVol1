@@ -15,7 +15,7 @@ namespace LaugaLaunVol1
             var calcPage = new CalculatorPage();
             var calcNavPage = new NavigationPage(calcPage);
             calcNavPage.Title = "Reiknivél";
-
+            /*
             var shiftPage = new ShiftPlanPage();
             var shiftNavPage = new NavigationPage(shiftPage);
             shiftNavPage.Title = "Vaktaplan";
@@ -23,10 +23,15 @@ namespace LaugaLaunVol1
             var infoPage = new InfoPage();
             var infoNavPage = new NavigationPage(infoPage);
             infoNavPage.Title = "Upplýsingar";
+            */
+            var settingsPage = new SettingsPage();
+            var settingsNavPage = new NavigationPage(settingsPage);
+            settingsNavPage.Title = "Stillingar";
 
             Children.Add(calcNavPage);
-            Children.Add(shiftNavPage);
-            Children.Add(infoNavPage);
+            //Children.Add(shiftNavPage);
+            //Children.Add(infoNavPage);
+            Children.Add(settingsNavPage);
         }
     }
 }

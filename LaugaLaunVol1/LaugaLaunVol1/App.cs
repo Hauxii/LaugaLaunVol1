@@ -11,12 +11,13 @@ namespace LaugaLaunVol1
     {
         public App()
         {
+            /*
             // The root page of your application
             var calcPage = new CalculatorPage();
             var calcNavigationPage = new NavigationPage(calcPage);
             calcNavigationPage.Title = "Reiknivél";
 
-            /*
+            
             var shiftPage = new ShiftPlanPage();
             var otherNavigationPage = new NavigationPage(shiftPage);
             otherNavigationPage.Title = "Vaktaplan";
@@ -24,18 +25,12 @@ namespace LaugaLaunVol1
             var infoPage = new InfoPage();
             var popularNavigationPage = new NavigationPage(infoPage);
             popularNavigationPage.Title = "Upplýsingar";
-            */
-
-            var settingsPage = new SettingsPage();
-            var settingsNavigationPage = new NavigationPage(settingsPage);
-            settingsNavigationPage.Title = "Stillingar";
 
             var tabbedPage = new TabbedPage();
             tabbedPage.Children.Add(calcNavigationPage);
             //tabbedPage.Children.Add(otherNavigationPage);
             //tabbedPage.Children.Add(popularNavigationPage);
-            tabbedPage.Children.Add(settingsNavigationPage);
-
+            */
             MainPage = new MainPage();
         }
 

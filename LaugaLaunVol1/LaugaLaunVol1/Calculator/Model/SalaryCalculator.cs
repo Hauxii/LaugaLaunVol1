@@ -31,7 +31,7 @@ namespace LaugaLaunVol1.Calculator.Model
             
             //TODO: CALC from Settings
             _paycheck.Lifeyrir = 0.04 * _paycheck.TotalPayPreDeduction;
-            _paycheck.SereignaLifeyrir = _paycheck.SereignaLifeyrirProsenta * _paycheck.TotalPayPreDeduction; 
+            _paycheck.SereignaLifeyrir = ((Double)_paycheck.SereignaLifeyrirProsenta / 100) * _paycheck.TotalPayPreDeduction; 
             CalcTax();
             _paycheck.StRv = 0.01*_paycheck.TotalPayPreDeduction;
             _paycheck.TotalDeduction = _paycheck.Lifeyrir + _paycheck.SereignaLifeyrir + _paycheck.TaxTotal + _paycheck.StRv;
