@@ -15,7 +15,7 @@ namespace LaugaLaunVol1
             var calcPage = new CalculatorPage();
             var calcNavPage = new NavigationPage(calcPage);
             calcNavPage.Title = "Reiknivél";
-            calcNavPage.Icon = (FileImageSource) ImageSource.FromFile("calc.png");
+            //calcNavPage.Icon = (FileImageSource) ImageSource.FromFile("calc.png");
             /*
             var shiftPage = new ShiftPlanPage();
             var shiftNavPage = new NavigationPage(shiftPage);
@@ -28,7 +28,7 @@ namespace LaugaLaunVol1
             var settingsPage = new SettingsPage();
             var settingsNavPage = new NavigationPage(settingsPage);
             settingsNavPage.Title = "Stillingar";
-            settingsNavPage.Icon = (FileImageSource)ImageSource.FromFile("settings.png");
+            //settingsNavPage.Icon = (FileImageSource)ImageSource.FromFile("settings.png");
 
             Children.Add(calcNavPage);
             //Children.Add(shiftNavPage);
