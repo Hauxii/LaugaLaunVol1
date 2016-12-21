@@ -13,28 +13,30 @@ namespace LaugaLaunVol1.Calculator.Model
         private ObservableCollection<Shift> _shifts;
         private Paycheck _paycheck;
         private readonly double TAX_STEP_1 = 336035;
+        private readonly double TAX_STEP_1_PERCENT = 0.3713;
+        private readonly double TAX_STEP_2_PERCENT = 0.3835;
 
         public SalaryCalculator(ObservableCollection<Shift> shifts)
         {
             this._shifts = shifts;
-            this._paycheck = new Paycheck();
         }
 
         public Paycheck CalculateSalary()
         {
+            _paycheck = new Paycheck();
             GetTotalHours();
             _paycheck.MorningPay = _paycheck.TotalMorningHours * _paycheck.MorningPayRate;
             _paycheck.EveningPay = _paycheck.TotalEveningHours * _paycheck.EveningPayRate;
             _paycheck.OrlofBase = _paycheck.MorningPay + _paycheck.EveningPay;
-            _paycheck.Orlof = 0.1017 * _paycheck.OrlofBase; //10,17% of morningpay + eveningpay
+            _paycheck.Orlof = _paycheck.OrlofProsenta * _paycheck.OrlofBase; //10,17% of morningpay + eveningpay
+            _paycheck.OrlofBanki = (1 - (TAX_STEP_1_PERCENT + _paycheck.SereignaLifeyrirProsenta + 0.04))*_paycheck.Orlof;
             _paycheck.TotalPayPreDeduction = (int)(_paycheck.MorningPay + _paycheck.EveningPay + _paycheck.Orlof);
             
-            //TODO: CALC from Settings
             _paycheck.Lifeyrir = 0.04 * _paycheck.TotalPayPreDeduction;
-            _paycheck.SereignaLifeyrir = ((Double)_paycheck.SereignaLifeyrirProsenta / 100) * _paycheck.TotalPayPreDeduction; 
+            _paycheck.SereignaLifeyrir = _paycheck.SereignaLifeyrirProsenta * _paycheck.TotalPayPreDeduction; 
             CalcTax();
             _paycheck.StRv = 0.01*_paycheck.TotalPayPreDeduction;
-            _paycheck.TotalDeduction = _paycheck.Lifeyrir + _paycheck.SereignaLifeyrir + _paycheck.TaxTotal + _paycheck.StRv;
+            _paycheck.TotalDeduction = _paycheck.Lifeyrir + _paycheck.SereignaLifeyrir + _paycheck.TaxTotal + _paycheck.StRv + _paycheck.OrlofBanki;
             _paycheck.TotalPay = _paycheck.TotalPayPreDeduction - _paycheck.TotalDeduction;
             
             return _paycheck;
@@ -54,8 +56,8 @@ namespace LaugaLaunVol1.Calculator.Model
                 }
             }
 
-            _paycheck.TaxToPay += (0.3713*_paycheck.TaxBase - leftOver); //Tax step 1, 37.13%
-            _paycheck.TaxToPay += (0.3835*leftOver); //Tax step 2, 38,35%
+            _paycheck.TaxToPay += (TAX_STEP_1_PERCENT*_paycheck.TaxBase - leftOver); //Tax step 1, 37.13%
+            _paycheck.TaxToPay += (TAX_STEP_2_PERCENT*leftOver); //Tax step 2, 38,35%
             _paycheck.TaxTotal = _paycheck.TaxToPay - _paycheck.TaxDiscount;
             if (_paycheck.TaxTotal < 0)
             {

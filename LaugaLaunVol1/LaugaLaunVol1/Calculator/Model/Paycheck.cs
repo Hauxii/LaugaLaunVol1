@@ -11,7 +11,6 @@ namespace LaugaLaunVol1.Calculator.Model
 {
     public class Paycheck
     {
-        //TODO: remove when Settings has been added
         public double MorningPayRate
         {
             get { return Settings.MorningPayRate; }
@@ -34,6 +33,8 @@ namespace LaugaLaunVol1.Calculator.Model
         public double EveningPay { get; set; }
         public double OrlofBase { get; set; }
         public double Orlof { get; set; }
+        public double OrlofBanki { get; set; }
+        public double OrlofProsenta { get { return ((Double)Settings.OrlofProsenta / 100); } }
         public double HolidayHours { get; set; }
         public double TotalPayPreDeduction { get; set; }
         public double TotalPay { get; set; }
@@ -44,9 +45,9 @@ namespace LaugaLaunVol1.Calculator.Model
         public double TaxToPay { get; set; }
         public double Lifeyrir { get; set; }
         public double SereignaLifeyrir { get; set; }
-        public int SereignaLifeyrirProsenta
+        public double SereignaLifeyrirProsenta
         {
-            get { return Settings.SereignaLifeyrirProsenta; }
+            get { return ((Double)Settings.SereignaLifeyrirProsenta / 100); }
         }
         public double TotalDeduction { get; set; }
         public double StRv { get; set; }

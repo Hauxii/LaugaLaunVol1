@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LaugaLaunVol1.Calculator.SettingsPage"
+             Title="LaugaLaun">
+  <StackLayout>
+    <Label Text="Allar upplýsingar má finna á launaseðli"></Label>
+    <Grid Padding="10">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="80" />
+      </Grid.ColumnDefinitions>
+      <Label Grid.Row="0" Grid.Column="0" 
+             Text="Dagvinnutaxti" 
+             HorizontalOptions="Start"/>
+      <Entry Grid.Row="0" Grid.Column="1"
+             Text="{Binding MorningPayRate}"
+             Keyboard="Numeric"
+             HorizontalTextAlignment="Start"
+             HorizontalOptions="Fill" />
+      <Label Grid.Row="1" Grid.Column="0"
+             Text="Yfirvinnutaxti"
+             HorizontalOptions="Start"/>
+      <Entry Grid.Row="1" Grid.Column="1"
+             Text="{Binding EveningPayRate}"
+             Keyboard="Numeric"
+             HorizontalTextAlignment="Start"
+             HorizontalOptions="Fill"/>
+      <Label Grid.Row="2" Grid.Column="0"
+             Text="Persónuafsláttur"
+             HorizontalOptions="Start"/>
+      <Entry Grid.Row="2" Grid.Column="1"
+             Text="{Binding TaxDiscount}"
+             Keyboard="Numeric"
+             HorizontalTextAlignment="Start"
+             HorizontalOptions="Fill"/>
+      <Label Grid.Row="3" Grid.Column="0"
+             Text="Séreignasparnaður (prósenta)"
+             HorizontalOptions="Start"/>
+      <Entry Grid.Row="3" Grid.Column="1"
+             HorizontalOptions="Fill"
+             Keyboard="Numeric"
+             HorizontalTextAlignment="Start"
+             Text="{Binding SereignaLifeyrirProsenta}"/>
+      <Label Grid.Row="4" Grid.Column="0"
+             Text="Orlofsprósenta"
+             HorizontalOptions="Start"/>
+      <Entry Grid.Row="4" Grid.Column="1"
+             HorizontalOptions="Fill"
+             Keyboard="Numeric"
+             HorizontalTextAlignment="Start"
+             Text="{Binding OrlofProsenta}"/>
+    </Grid>
+  </StackLayout>
+</ContentPage>

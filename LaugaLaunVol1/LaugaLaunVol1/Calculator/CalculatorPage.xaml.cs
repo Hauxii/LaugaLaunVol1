@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LaugaLaunVol1.Calculator.Model;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace LaugaLaunVol1.Calculator
 {
@@ -33,7 +34,14 @@ namespace LaugaLaunVol1.Calculator
             };
             CalcButton.Clicked += (sender, args) =>
             {
-                this.Navigation.PushAsync(new PaycheckPage(_salaryCalculator.CalculateSalary()));
+                if (_shifts.Count == 0)
+                {
+                    DisplayAlert("Villa", "Engar vaktir skráðar", "OK");
+                }
+                else
+                {
+                    this.Navigation.PushAsync(new PaycheckPage(_salaryCalculator.CalculateSalary()));
+                }
             };
             //Disable highlight on item selected
             ShiftList.ItemTapped += (object sender, ItemTappedEventArgs e) => {
@@ -47,6 +55,10 @@ namespace LaugaLaunVol1.Calculator
         {
             var menuItem = (MenuItem)sender;
             _shifts.Remove((Shift)menuItem.CommandParameter);
+        }
+        public void OnClear(object sender, EventArgs e)
+        {
+            _shifts.Clear();
         }
 
     }

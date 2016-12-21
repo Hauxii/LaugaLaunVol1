@@ -56,7 +56,7 @@
           <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="Auto"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
           <ColumnDefinition Width="*"></ColumnDefinition>
           <ColumnDefinition Width="*"></ColumnDefinition>
           <ColumnDefinition Width="*"></ColumnDefinition>
@@ -135,7 +135,8 @@
              FontSize="Large"
              HorizontalOptions="Center"/>
       <Grid Padding="10">
-        <Grid.RowDefinitions>
+        <Grid.RowDefinitions>          
+          <RowDefinition Height="Auto"></RowDefinition>
           <RowDefinition Height="Auto"></RowDefinition>
           <RowDefinition Height="Auto"></RowDefinition>
           <RowDefinition Height="Auto"></RowDefinition>
@@ -182,33 +183,40 @@
                Text="{Binding TaxTotal}"
                HorizontalOptions="EndAndExpand"/>
         <Label Grid.Row="4" Grid.Column="0"
-               Text="Lífeyrissjóður"
+               Text="Orlof (lagt í banka) "
                HorizontalOptions="Start"/>
         <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"
+               x:Name="OrlofBanki"
+               Text="{Binding OrlofBanki}"
+               HorizontalOptions="EndAndExpand"/>
+        <Label Grid.Row="5" Grid.Column="0"
+               Text="Lífeyrissjóður"
+               HorizontalOptions="Start"/>
+        <Label Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"
                x:Name="Lifeyrir"
                Text="{Binding Lifeyrir}"
                HorizontalOptions="EndAndExpand"/>
-        <Label Grid.Row="5" Grid.Column="0"
+        <Label Grid.Row="6" Grid.Column="0"
                Text="Séreignarsparnaður"
                HorizontalOptions="Start"/>
-        <Label Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"
+        <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"
                x:Name="SereignaLifeyrir"
                Text="{Binding SereignaLifeyrir}"
                HorizontalOptions="EndAndExpand"/>
-        <Label Grid.Row="6" Grid.Column="0"
+        <Label Grid.Row="7" Grid.Column="0"
                Text="StRv"
                HorizontalOptions="Start"/>
-        <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"
+        <Label Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"
                x:Name="StRv"
                Text="{Binding StRv}"
                HorizontalOptions="EndAndExpand"/>
-        <BoxView Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"
+        <BoxView Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4"
                BackgroundColor="Gray"
                HorizontalOptions="Fill"/>
-        <Label Grid.Row="8" Grid.Column="0"
+        <Label Grid.Row="9" Grid.Column="0"
                Text="Frádráttur samtals:"
                HorizontalOptions="Start"/>
-        <Label Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3"
+        <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3"
                x:Name="TotalDeduction"
                Text="{Binding TotalDeduction}"
                HorizontalTextAlignment="End"

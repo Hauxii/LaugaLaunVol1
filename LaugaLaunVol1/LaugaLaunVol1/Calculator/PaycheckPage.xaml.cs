@@ -23,6 +23,7 @@ namespace LaugaLaunVol1.Calculator
             MorningPay.Text = double.Parse(paycheck.MorningPay.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             EveningPay.Text = double.Parse(paycheck.EveningPay.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             Orlof.Text = double.Parse(paycheck.Orlof.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
+            OrlofBanki.Text = double.Parse(paycheck.OrlofBanki.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             OrlofBase.Text = double.Parse(paycheck.OrlofBase.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             MorningPayRate.Text = double.Parse(paycheck.MorningPayRate.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
             EveningPayRate.Text = double.Parse(paycheck.EveningPayRate.ToString()).ToString("##,###", CultureInfo.CurrentCulture);
